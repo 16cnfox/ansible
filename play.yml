@@ -1,0 +1,12 @@
+- name: Update web servers
+  hosts: webservers
+  remote_user: chelsea
+
+  tasks:
+  - name: Update all packages to their latest version
+    ansible.builtin.apt:
+      name: "*"
+      state: latest
+      # upgrade: dist
+      update_cache: yes
+    become: yes
